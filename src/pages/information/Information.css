@@ -1,0 +1,6 @@
+.inputWrapper{
+    width: 45%;
+}
+.textInput:focus{
+outline: none;
+}
