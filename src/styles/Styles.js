@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 
 export const StyledDiv = styled.div`
-  text-align: center;
+  /* text-align: center; */
   padding: 0px;
   margin: 0px;
   background-color: ${(props) => props.theme.body};
@@ -26,14 +26,19 @@ export const SubTitle = styled.h2`
   font-weight: 500;
   color: ${(props) => props.theme.title};
 `;
+export const SubSubTitle = styled.h3`
+  font-size: 24px;
+  font-weight: 500;
+  color: ${(props) => props.theme.title};
+`;
 export const Desc = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 200;
   color : ${(props) => props.theme.desc};
 `;
 export const Icon = styled.p`
   margin: 0px;
-  font-size: 27px;
+  font-size: 22px;
   font-weight: 400;
   color : ${(props) => props.theme.icon};
 `;
