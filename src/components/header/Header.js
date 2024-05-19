@@ -20,7 +20,7 @@ function Header({changeTheme, theme}) {
         <img src="/img/logo.jpg" alt="logo" width={98} height={70} />
       </StyledDiv>
       <StyledDiv className="d-none d-md-flex col-md-6">
-        <nav class="nav nav-pills nav-justified align-content-center">
+        <nav className="nav nav-pills nav-justified align-content-center">
           <NavLink className={`nav-link px-2 py-3 ${({ isActive }) => isActive ? "active" : ""}`} to="/">
             کاربران
           </NavLink>

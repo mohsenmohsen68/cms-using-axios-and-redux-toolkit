@@ -11,6 +11,8 @@ export const StyledDiv = styled.div`
 
 export const StyledBtn = styled.button`
 background-color:green;
+height: fit-content;
+padding: 5px;
 border:0px solid`
 
 
@@ -55,13 +57,13 @@ export const ErrorMsg = styled.h6`
 
 export const lightTheme = {
   body: "#fff",
-  desc: "#000",
-  icon: "#000",
-  title: "#000"
+  desc: "#3a413c",
+  icon: "#3a413c",
+  title: "#3a413c"
 };
 
 export const darkTheme = {
-  body: "#000",
+  body: "#3a413c",
   desc: "#fff",
   icon: "#fff",
   title: "#fff"
