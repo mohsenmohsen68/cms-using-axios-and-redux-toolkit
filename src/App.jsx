@@ -24,9 +24,9 @@ function App() {
   return (
     <ThemeProvider theme={projectTheme}>
       <Header changeTheme={changeThemeHandler} theme={projectTheme} />
-      <div className="container row mx-auto mt-2 ">
-        <div className="col-3 shadow-sm py-3 " > <SideBar/> </div>
-        <div className="col-9 shadow-sm py-3 " >{router}</div>
+      <div className="container-fluid row mx-auto mt-2 ">
+        <div className="col-3 shadow-sm py-1 " > <SideBar/> </div>
+        <div className="col-9 shadow-sm py-1 " >{router}</div>
       </div>
     </ThemeProvider>
   );

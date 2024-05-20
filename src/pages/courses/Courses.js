@@ -6,7 +6,7 @@ export default function Courses() {
   return (
     <StyledDiv className='d-flex flex-column justify-content-between p-1 h-100 w-100'>
       
-      <Course/>
+      <Course type={'course'}/>
 
       <StyledDiv className='d-flex justify-content-center gap-2'>
         <StyledBtn className='bg-success'> افزودن دوره جدید </StyledBtn>

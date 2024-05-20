@@ -13,7 +13,7 @@ function Header({changeTheme, theme}) {
     
   return (
     <StyledDiv
-      className="row container mt-2 rounded-2 mx-auto shadow-sm"
+      className="row container-fluid mt-2 rounded-2 mx-auto shadow-sm"
       style={{ height: "80px" }}
     >
       <StyledDiv className="col-6 col-md-3 d-flex align-items-center justify-content-center ">
