@@ -9,7 +9,7 @@ export default function Users() {
  const userData = useSelector(state => state.users[0])
  console.log('user',userData)
  useEffect(()=>{
-  dispatch(getUserFromServer('https://jsonplaceholder.typicode.com/users '))
+  dispatch(getUserFromServer('https://redux-cms.iran.liara.run/api/users'))
  },[])
   return (
     

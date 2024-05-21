@@ -10,7 +10,7 @@ import { IoIosPricetags } from "react-icons/io";
 import { MdCategory } from "react-icons/md";
 import { FaChartLine } from "react-icons/fa";
 
-export default function Course(props) {
+export default function Course({_id,category,desc,discount,price,registersCount,title,type}) {
   return (
     <StyledDiv className="row w-100 border" style={{ height: "150px" }}>
       <StyledDiv className="col-3">
@@ -24,9 +24,9 @@ export default function Course(props) {
 
       <StyledDiv className="d-flex flex-column col-9 pb-2 ">
         <StyledDiv className=" p-2" style={{ flex: "4", textAlign: "start" }}>
-          <SubSubTitle>دوره متخصص ریداکس</SubSubTitle>
+          <SubSubTitle>{title}</SubSubTitle>
           <Desc className="text-truncate ">
-            ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
+            {desc}
           </Desc>
         </StyledDiv>
 
@@ -38,7 +38,7 @@ export default function Course(props) {
             className="d-flex justify-content-evenly"
             style={{ flex: "4" }}
           >
-            {props.type === 'course' ? (<StyledDiv className="d-flex  align-items-center ">
+            {type === 'course' ? (<StyledDiv className="d-flex  align-items-center ">
               <Icon>
                 <IoIosPricetags className="text-info"/>
               </Icon>
@@ -49,7 +49,7 @@ export default function Course(props) {
                   margin: "auto auto",
                 }}
               >
-                قیمت : {(350000).toLocaleString("fa-ir")}
+                قیمت : {price===0 ? 'رایگان' : price.toLocaleString("fa-ir")}
               </Desc>
             </StyledDiv>) : (<></>)}
 
@@ -64,7 +64,7 @@ export default function Course(props) {
                   margin: "auto auto",
                 }}
               >
-                دسته بندی : frontend
+                دسته بندی : {category}
               </Desc>
             </StyledDiv>
 
@@ -77,7 +77,7 @@ export default function Course(props) {
                   paddingRight: "5px",
                   margin: "auto auto",
                 }}>
-                {props.type === 'course' ? 'تعداد فروش': 'تعداد بازدید' }: {(10).toLocaleString("fa-ir")}
+                {type === 'course' ? 'تعداد فروش': 'تعداد بازدید' }: {(registersCount).toLocaleString("fa-ir")}
               </Desc>
             </StyledDiv>
 
