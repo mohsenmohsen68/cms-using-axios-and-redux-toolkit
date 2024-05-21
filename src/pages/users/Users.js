@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {StyledDiv, StyledBtn,Desc} from './../../styles/Styles'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserFromServer } from '../../Redux/store/UsersReducer';
+import User from '../../components/user/User';
 
 export default function Users() {
+ const dispatch = useDispatch();
+ const userData = useSelector(state => state.users[0])
+ console.log('user',userData)
+ useEffect(()=>{
+  dispatch(getUserFromServer('https://jsonplaceholder.typicode.com/users '))
+ },[])
   return (
     
      <StyledDiv className=' w-100 h-100 p-3'>
@@ -12,18 +21,7 @@ export default function Users() {
 
 
       <StyledDiv className=' mt-3 p-3'>
-        <StyledDiv className='d-flex justify-content-evenly border align-items-center '>
-          <img src="/img/profile.jpg" alt="profileImage" className='rounded-circle border' style={{width:'60px', height:'60px'}} />
-          <div className='d-flex flex-column'>
-            <Desc> علی احمدی</Desc>
-            <Desc> aliahmadi@gmail.com </Desc>
-          </div>
-          <StyledDiv className='d-flex gap-2'>
-            <StyledBtn className='bg-info'> پیام ها </StyledBtn>
-            <StyledBtn className='bg-warning'> ویرایش کاربر </StyledBtn>
-            <StyledBtn className='bg-danger'> حذف کاربر </StyledBtn>
-          </StyledDiv>
-        </StyledDiv>
+        {userData?.map(item =><User key={item.id} {...item} />)}
       </StyledDiv>
 
 
