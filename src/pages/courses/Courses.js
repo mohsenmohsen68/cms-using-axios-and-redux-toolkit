@@ -6,7 +6,7 @@ import { getCoursesFromServer } from '../../Redux/store/CoursesReducer';
 
 export default function Courses() {
   const dispatch = useDispatch();
-  const coursesData = useSelector(state => state.courses[0])
+  const coursesData = useSelector(state => state.courses)
   console.log('course',coursesData)
   useEffect(()=>{
    dispatch(getCoursesFromServer('https://redux-cms.iran.liara.run/api/courses'))

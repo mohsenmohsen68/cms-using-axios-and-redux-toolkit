@@ -9,8 +9,32 @@ import {
 import { IoIosPricetags } from "react-icons/io";
 import { MdCategory } from "react-icons/md";
 import { FaChartLine } from "react-icons/fa";
+import swal from "sweetalert";
+import { removeCourse } from "../../Redux/store/CoursesReducer";
+import { useDispatch } from "react-redux";
 
 export default function Course({_id,category,desc,discount,price,registersCount,title,type}) {
+  
+  const dispatch = useDispatch();
+
+  const removeHandler = (id) =>{
+    swal({
+      title:'آیا از حذف کاربر مطمئن هستید؟',
+      icon:'warning',
+      buttons:['خیر','بلی']
+    }).then((result)=>{
+      console.log(result)
+      if(result){
+        dispatch(removeCourse(_id))
+        swal({
+          title:'کاربر با موفقیت حذف گردید .',
+          icon:'success',
+          button:'اوکی'
+        })
+      }
+    })
+  }
+  
   return (
     <StyledDiv className="row w-100 border" style={{ height: "150px" }}>
       <StyledDiv className="col-3">
@@ -77,7 +101,7 @@ export default function Course({_id,category,desc,discount,price,registersCount,
                   paddingRight: "5px",
                   margin: "auto auto",
                 }}>
-                 ' : تعداد فروش'  {(registersCount).toLocaleString("fa-ir")}
+                  : تعداد فروش  {(registersCount).toLocaleString("fa-ir")}
               </Desc>
             </StyledDiv>
 
@@ -88,7 +112,7 @@ export default function Course({_id,category,desc,discount,price,registersCount,
             style={{ flex: "1" }}
           >
             <StyledBtn className="bg-warning">ویرایش</StyledBtn>
-            <StyledBtn className="bg-danger">حذف</StyledBtn>
+            <StyledBtn className="bg-danger" onClick={()=>removeHandler(_id)}>حذف</StyledBtn>
           </StyledDiv>
         </StyledDiv>
       </StyledDiv>

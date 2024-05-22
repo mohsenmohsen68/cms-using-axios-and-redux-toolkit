@@ -8,8 +8,32 @@ import {
 } from "../../styles/Styles";
 import { MdCategory } from "react-icons/md";
 import { FaChartLine } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import swal from "sweetalert";
+import { removeArticle } from "../../Redux/store/ArticlesReducer";
 
 export default function Article({_id,category,desc,views,title}) {
+
+  const dispatch = useDispatch();
+
+  const removeHandler = (id) =>{
+    swal({
+      title:'آیا از حذف کاربر مطمئن هستید؟',
+      icon:'warning',
+      buttons:['خیر','بلی']
+    }).then((result)=>{
+      console.log(result)
+      if(result){
+        dispatch(removeArticle(_id))
+        swal({
+          title:'مقاله با موفقیت حذف گردید .',
+          icon:'success',
+          button:'اوکی'
+        })
+      }
+    })
+  }
+
   return (
     <StyledDiv className="row w-100 border" style={{ height: "150px" }}>
       <StyledDiv className="col-3">
@@ -74,7 +98,7 @@ export default function Article({_id,category,desc,views,title}) {
             style={{ flex: "1" }}
           >
             <StyledBtn className="bg-warning">ویرایش</StyledBtn>
-            <StyledBtn className="bg-danger">حذف</StyledBtn>
+            <StyledBtn className="bg-danger" onClick={()=>removeHandler(_id)}>حذف</StyledBtn>
           </StyledDiv>
         </StyledDiv>
       </StyledDiv>
