@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "./components/header/Header";
 import { useRoutes } from "react-router";
+import './App.css' 
 import routes from "./routes";
 import { ThemeProvider } from "styled-components";
 import {

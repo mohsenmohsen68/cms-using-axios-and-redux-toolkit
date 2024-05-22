@@ -6,8 +6,8 @@ import User from '../../components/user/User';
 
 export default function Users() {
  const dispatch = useDispatch();
- const userData = useSelector(state => state.users[0])
- console.log('user',userData)
+ const userData = useSelector(state => state.users)
+//  console.log('user',userData)
  useEffect(()=>{
   dispatch(getUserFromServer('https://redux-cms.iran.liara.run/api/users'))
  },[])
@@ -16,12 +16,12 @@ export default function Users() {
      <StyledDiv className=' w-100 h-100 p-3'>
       <StyledDiv className='d-flex justify-content-evenly'>
         <input type="text" className="w-50" placeholder='نام یا ایمیل کاربر را وارد کنید ...' />
-        <StyledBtn className='bg-danger'>حذف کاربر</StyledBtn>
+        <StyledBtn className='bg-danger' >حذف کاربر</StyledBtn>
       </StyledDiv>
 
 
       <StyledDiv className=' mt-3 p-3'>
-        {userData?.map(item =><User key={item.id} {...item} />)}
+        {userData?.map(item =><User key={item._id} {...item} />)}
       </StyledDiv>
 
 
