@@ -6,11 +6,10 @@ import {
   StyledDiv,
   SubSubTitle,
 } from "../../styles/Styles";
-import { IoIosPricetags } from "react-icons/io";
 import { MdCategory } from "react-icons/md";
 import { FaChartLine } from "react-icons/fa";
 
-export default function Course({_id,category,desc,discount,price,registersCount,title,type}) {
+export default function Article({_id,category,desc,views,title}) {
   return (
     <StyledDiv className="row w-100 border" style={{ height: "150px" }}>
       <StyledDiv className="col-3">
@@ -38,20 +37,7 @@ export default function Course({_id,category,desc,discount,price,registersCount,
             className="d-flex justify-content-evenly"
             style={{ flex: "4" }}
           >
-            <StyledDiv className="d-flex  align-items-center ">
-              <Icon>
-                <IoIosPricetags className="text-info"/>
-              </Icon>
-              <Desc
-                style={{
-                  fontSize: "14px",
-                  paddingRight: "5px",
-                  margin: "auto auto",
-                }}
-              >
-                قیمت : {price===0 ? 'رایگان' : price.toLocaleString("fa-ir")}
-              </Desc>
-            </StyledDiv>
+           
 
             <StyledDiv className="d-flex  align-items-center ">
               <Icon>
@@ -77,7 +63,7 @@ export default function Course({_id,category,desc,discount,price,registersCount,
                   paddingRight: "5px",
                   margin: "auto auto",
                 }}>
-                 ' : تعداد فروش'  {(registersCount).toLocaleString("fa-ir")}
+                 'تعداد بازدید' : {(views).toLocaleString("fa-ir")}
               </Desc>
             </StyledDiv>
 
